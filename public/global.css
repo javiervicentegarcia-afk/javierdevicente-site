@@ -341,3 +341,54 @@ footer.site{
 @media (prefers-reduced-motion: reduce){
   *{ transition: none !important; }
 }
+/* -------------------------------------------------------
+   Subtle hero animation (quiet, editorial)
+-------------------------------------------------------- */
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroTextFade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero container */
+.hero{
+  animation: heroFadeUp 520ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* Hero text slightly delayed */
+.hero p{
+  animation: heroTextFade 520ms cubic-bezier(.2,.8,.2,1) both;
+  animation-delay: 120ms;
+}
+
+/* Separator even more discreet */
+.hero::after{
+  animation: heroTextFade 520ms cubic-bezier(.2,.8,.2,1) both;
+  animation-delay: 200ms;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .hero,
+  .hero p,
+  .hero::after{
+    animation: none !important;
+  }
+}
