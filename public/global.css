@@ -1,5 +1,6 @@
 /* -------------------------------------------------------
    Javier Vicente — Cross-border Corporate & M&A
+   Definitive CSS
    White editorial layout + full-bleed blue hero band
    Partner-level / quiet luxury
 -------------------------------------------------------- */
@@ -39,7 +40,10 @@
   --ease: cubic-bezier(.2,.8,.2,1);
 }
 
-/* Reset */
+/* -------------------------------------------------------
+   Reset & base
+-------------------------------------------------------- */
+
 *{ box-sizing: border-box; }
 
 html, body{
@@ -77,10 +81,14 @@ body{
 -------------------------------------------------------- */
 
 header.site{
+  position: relative;
+  z-index: 2;
+
   display:flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 1.75rem;
+
   padding-bottom: 1.35rem;
   border-bottom: 1px solid var(--line);
   margin-bottom: 3.75rem;
@@ -138,17 +146,22 @@ p{
 }
 
 /* -------------------------------------------------------
-   HERO — FULL BLEED BLUE BAND
+   HERO — FULL BLEED BLUE BAND (TOUCHING HEADER)
 -------------------------------------------------------- */
 
 .hero{
   position: relative;
+  z-index: 1;
+
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
 
   width: 100vw;
+
+  /* clave: sube hasta el separador del header */
+  margin-top: -3.75rem;
   padding: 3.75rem 0 4rem;
 
   background:
@@ -162,6 +175,8 @@ p{
   box-shadow:
     0 28px 80px rgba(11,16,32,.25),
     inset 0 1px 0 rgba(255,255,255,.06);
+
+  animation: heroFadeUp 520ms var(--ease) both;
 }
 
 /* Inner alignment */
@@ -176,11 +191,15 @@ p{
 .hero p{
   margin: 0;
   max-width: 52ch;
+
   font-family: var(--serif);
   font-size: 1.7rem;
   line-height: 1.35;
   letter-spacing: -0.02em;
   color: var(--hero-ink);
+
+  animation: heroTextFade 520ms var(--ease) both;
+  animation-delay: 120ms;
 }
 
 /* Hero separator */
@@ -191,6 +210,9 @@ p{
   height: 1px;
   margin: 1.75rem auto 0;
   background: linear-gradient(90deg, var(--hero-line), transparent);
+
+  animation: heroTextFade 520ms var(--ease) both;
+  animation-delay: 200ms;
 }
 
 /* Space after hero */
@@ -320,6 +342,7 @@ footer.site{
   }
 
   .hero{
+    margin-top: -3rem;
     padding: 2.75rem 0 3rem;
   }
 
@@ -335,56 +358,19 @@ footer.site{
 }
 
 /* -------------------------------------------------------
-   Reduced motion
+   Animations (ultra subtle)
 -------------------------------------------------------- */
 
-@media (prefers-reduced-motion: reduce){
-  *{ transition: none !important; }
-}
-/* -------------------------------------------------------
-   Subtle hero animation (quiet, editorial)
--------------------------------------------------------- */
-
-@keyframes heroFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes heroFadeUp{
+  from{ opacity:0; transform: translateY(6px); }
+  to{ opacity:1; transform: translateY(0); }
 }
 
-@keyframes heroTextFade {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes heroTextFade{
+  from{ opacity:0; transform: translateY(4px); }
+  to{ opacity:1; transform: translateY(0); }
 }
 
-/* Hero container */
-.hero{
-  animation: heroFadeUp 520ms cubic-bezier(.2,.8,.2,1) both;
-}
-
-/* Hero text slightly delayed */
-.hero p{
-  animation: heroTextFade 520ms cubic-bezier(.2,.8,.2,1) both;
-  animation-delay: 120ms;
-}
-
-/* Separator even more discreet */
-.hero::after{
-  animation: heroTextFade 520ms cubic-bezier(.2,.8,.2,1) both;
-  animation-delay: 200ms;
-}
-
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
   .hero,
   .hero p,
