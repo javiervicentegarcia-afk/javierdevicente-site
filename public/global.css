@@ -1,21 +1,27 @@
 /* -------------------------------------------------------
    Javier Vicente — Cross-border Corporate & M&A
-   Quiet luxury / partner-level (ink on deep blue)
+   White paper + framed blue hero (partner-level)
 -------------------------------------------------------- */
 
 :root{
-  /* Palette: deep ink blue */
-  --bg: #0e1424;              /* fondo azul sofisticado */
-  --paper: rgba(255,255,255,.06);
+  /* Base palette (paper) */
+  --bg: #fbfbfa;
+  --paper: rgba(255,255,255,.72);
 
-  --ink: rgba(255,255,255,.92);
-  --ink-2: rgba(255,255,255,.84);
+  --ink: #0b1020;
+  --ink-2: #0f172a;
 
-  --muted: rgba(255,255,255,.64);
-  --faint: rgba(255,255,255,.52);
+  --muted: rgba(11,16,32,.70);
+  --faint: rgba(11,16,32,.54);
 
-  --line: rgba(255,255,255,.12);
-  --line-strong: rgba(255,255,255,.18);
+  --line: rgba(11,16,32,.10);
+  --line-strong: rgba(11,16,32,.16);
+
+  /* Hero palette (ink blue) */
+  --hero-bg: #0e1424;
+  --hero-ink: rgba(255,255,255,.94);
+  --hero-muted: rgba(255,255,255,.78);
+  --hero-line: rgba(255,255,255,.20);
 
   --max: 860px;
 
@@ -48,16 +54,10 @@ body{
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
-
-  /* profundidad muy contenida */
-  background:
-    radial-gradient(1100px 700px at 18% 0%, rgba(255,255,255,.06), transparent 62%),
-    radial-gradient(900px 520px at 86% 0%, rgba(255,255,255,.04), transparent 58%),
-    var(--bg);
 }
 
 ::selection{
-  background: rgba(255,255,255,.16);
+  background: rgba(11,16,32,.12);
 }
 
 /* Layout */
@@ -97,19 +97,12 @@ nav a{
   text-decoration: none;
   border-bottom: 1px solid transparent;
   padding-bottom: .12rem;
-  transition: color 160ms var(--ease), border-color 160ms var(--ease), opacity 160ms var(--ease);
+  transition: color 160ms var(--ease), border-color 160ms var(--ease);
 }
 
 nav a:hover{
   color: var(--ink);
   border-bottom-color: var(--line-strong);
-  opacity: .95;
-}
-
-nav a:focus-visible{
-  outline: 2px solid rgba(255,255,255,.18);
-  outline-offset: 3px;
-  border-radius: 6px;
 }
 
 /* Typography */
@@ -133,28 +126,48 @@ p{
   color: var(--ink-2);
 }
 
-/* Hero */
+/* -------------------------------------------------------
+   Hero (framed blue block)
+-------------------------------------------------------- */
+
 .hero{
-  padding-top: .15rem;
-  margin-bottom: 3.75rem;
+  margin: 0 0 4.25rem;
+  padding: 3.25rem 3.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,0)
+  ),
+  var(--hero-bg);
+  border-radius: 18px;
+  box-shadow:
+    0 28px 80px rgba(11,16,32,.25),
+    inset 0 1px 0 rgba(255,255,255,.06);
 }
 
 .hero p{
-  font-size: 1.36rem;
-  line-height: 1.62;
-  max-width: 60ch;
-  margin-top: 0;
-  color: var(--ink);
+  margin: 0;
+  max-width: 52ch;
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--hero-ink);
 }
 
-/* separator elegante */
-.hero:after{
-  content: "";
-  display: block;
-  width: 84px;
+/* discreet internal separator */
+.hero::after{
+  content:"";
+  display:block;
+  width: 72px;
   height: 1px;
-  margin-top: 2.15rem;
-  background: linear-gradient(90deg, var(--line-strong), var(--line));
+  margin-top: 1.75rem;
+  background: linear-gradient(90deg, var(--hero-line), transparent);
+}
+
+/* Sections */
+section + section{
+  margin-top: 0;
 }
 
 /* Lists */
@@ -180,7 +193,7 @@ li::before{
   width: .34rem;
   height: .34rem;
   border-radius: 999px;
-  background: rgba(255,255,255,.75);
+  background: rgba(11,16,32,.82);
   transform: translateY(-50%);
 }
 
@@ -191,39 +204,31 @@ li::before{
   color: var(--faint);
   padding-left: .9rem;
   border-left: 1px solid var(--line);
-  max-width: 74ch;
 }
 
 /* Links */
 a{
   color: var(--ink);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.22);
-  transition: border-color 160ms var(--ease), opacity 160ms var(--ease);
+  border-bottom: 1px solid rgba(11,16,32,.18);
+  transition: border-color 160ms var(--ease);
 }
 
 a:hover{
-  border-bottom-color: rgba(255,255,255,.34);
-  opacity: .95;
+  border-bottom-color: rgba(11,16,32,.30);
 }
 
-a:focus-visible{
-  outline: 2px solid rgba(255,255,255,.18);
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-
-/* Email: tarjeta sutil */
+/* Email */
 .email{
   display: inline-block;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--ink);
-  padding: .55rem .85rem;
+  padding: .55rem .9rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--paper);
-  box-shadow: 0 18px 60px rgba(0,0,0,.45);
+  box-shadow: 0 14px 40px rgba(11,16,32,.05);
 }
 
 /* Footer */
@@ -243,42 +248,33 @@ footer.site{
   color: var(--muted);
 }
 
-.small a{
-  color: var(--muted);
-  border-bottom-color: transparent;
-}
-
-.small a:hover{
-  color: var(--ink);
-  border-bottom-color: var(--line-strong);
-}
-
 /* Mobile */
 @media (max-width: 760px){
   :root{
     --gutter: 1.35rem;
-    --pad-top: 3.75rem;
-    --pad-bottom: 4.25rem;
+    --pad-top: 3.5rem;
+    --pad-bottom: 4rem;
   }
 
   header.site{
     flex-direction: column;
     align-items: flex-start;
     gap: .75rem;
-    margin-bottom: 3.25rem;
+    margin-bottom: 3rem;
   }
 
-  nav{
-    gap: 1rem;
+  .hero{
+    padding: 2.25rem 1.75rem;
+    border-radius: 14px;
+  }
+
+  .hero p{
+    font-size: 1.45rem;
+    line-height: 1.4;
   }
 
   .email{
     width: 100%;
     text-align: center;
   }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  *{ transition: none !important; }
 }
