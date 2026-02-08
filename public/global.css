@@ -1,19 +1,18 @@
 :root{
-  /* Palette: navy-near-black + black */
+  /* Palette: navy-near-black */
   --bg: #fbfbfa;
-  --ink: #0b1020;        /* navy almost black */
-  --ink-2: #0f172a;      /* slightly lighter navy */
+  --ink: #0b1020;
+  --ink-2: #0f172a;
   --muted: rgba(11,16,32,.70);
   --faint: rgba(11,16,32,.55);
   --line: rgba(11,16,32,.12);
   --line-strong: rgba(11,16,32,.18);
-
   --max: 860px;
 }
 
 *{ box-sizing: border-box; }
 
-html,body{
+html, body{
   margin:0;
   padding:0;
   background: var(--bg);
@@ -25,21 +24,22 @@ body{
   font-weight: 400;
   line-height: 1.82;
   letter-spacing: -0.01em;
-  text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
 
 ::selection{
   background: rgba(11,16,32,.12);
 }
 
+/* Layout */
 .container{
   max-width: var(--max);
   margin: 0 auto;
   padding: 4.5rem 1.75rem 5rem;
 }
 
-/* --------- Header / Nav (quiet luxury) --------- */
+/* Header */
 header.site{
   display:flex;
   justify-content: space-between;
@@ -54,14 +54,6 @@ header.site{
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--ink);
-}
-
-.brand .sub{
-  display:block;
-  margin-top: .25rem;
-  font-size: .92rem;
-  color: var(--muted);
-  font-weight: 400;
 }
 
 nav{
@@ -82,8 +74,8 @@ nav a:hover{
   border-bottom-color: var(--line-strong);
 }
 
-/* --------- Typography (Magic Circle feel) --------- */
-h1,h2{
+/* Typography */
+h1, h2{
   font-family: Fraunces, ui-serif, Georgia, serif;
   font-weight: 520;
   letter-spacing: -0.03em;
@@ -92,42 +84,37 @@ h1,h2{
   color: var(--ink);
 }
 
-h1{
-  font-size: clamp(2.35rem, 3.8vw, 3.05rem);
-  margin-bottom: 1.1rem;
-}
-
 h2{
   font-size: 1.58rem;
   margin-top: 3.75rem;
-  padding-top: .25rem;
 }
 
-/* Paragraph rhythm */
 p{
   margin: 0 0 1rem 0;
   max-width: 74ch;
   color: var(--ink-2);
 }
 
-.subtitle{
-  font-size: 1.08rem;
-  color: var(--muted);
-  max-width: 72ch;
-  margin-bottom: 1.65rem;
-}
-
-/* Hero: subtle divider line */
+/* Hero */
 .hero{
   padding-top: .25rem;
+  margin-bottom: 3.5rem;
+}
+
+.hero p{
+  font-size: 1.35rem;
+  line-height: 1.6;
+  max-width: 60ch;
+  margin-top: 0;
 }
 
 .hero:after{
-  content:"";
-  display:block;
+  content: "";
+  display: block;
+  width: 60px;
   height: 1px;
   background: var(--line);
-  margin-top: 2.25rem;
+  margin-top: 2rem;
 }
 
 /* Lists */
@@ -149,7 +136,7 @@ li{
   color: var(--faint);
 }
 
-/* Links: “underline-as-border” luxury */
+/* Links */
 a{
   color: var(--ink);
   text-decoration: none;
@@ -160,20 +147,19 @@ a:hover{
   border-bottom-color: var(--line-strong);
 }
 
-/* Contact email emphasis */
-strong{
+/* Email emphasis */
+.email{
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
-/* Footer: discreet */
+/* Footer */
 footer.site{
   margin-top: 4.75rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
   display:flex;
   justify-content: space-between;
-  align-items: flex-start;
   gap: 1rem;
   flex-wrap: wrap;
   color: var(--muted);
@@ -188,6 +174,7 @@ footer.site{
   color: var(--muted);
   border-bottom-color: transparent;
 }
+
 .small a:hover{
   color: var(--ink);
   border-bottom-color: var(--line-strong);
@@ -195,30 +182,17 @@ footer.site{
 
 /* Mobile */
 @media (max-width: 760px){
-  .container{ padding: 3.5rem 1.35rem 4rem; }
-  header.site{ flex-direction: column; align-items: flex-start; gap: .75rem; }
-  nav{ gap: 1rem; }
-}
+  .container{
+    padding: 3.5rem 1.35rem 4rem;
+  }
 
-/* Hero: lead paragraph (Magic Circle style) */
-.hero p {
-  font-size: 1.35rem;
-  line-height: 1.6;
-  max-width: 60ch;
-  margin-top: 0;
-}
+  header.site{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .75rem;
+  }
 
-/* Hero spacing */
-.hero {
-  margin-bottom: 3.5rem;
-}
-
-/* Subtle divider under hero (editorial) */
-.hero:after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 1px;
-  background: var(--line);
-  margin-top: 2rem;
+  nav{
+    gap: 1rem;
+  }
 }
