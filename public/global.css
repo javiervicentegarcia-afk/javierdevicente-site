@@ -1,6 +1,7 @@
 /* -------------------------------------------------------
    Javier Vicente — Cross-border Corporate & M&A
-   White paper + framed blue hero (partner-level)
+   White editorial layout + full-bleed blue hero band
+   Partner-level / quiet luxury
 -------------------------------------------------------- */
 
 :root{
@@ -17,11 +18,11 @@
   --line: rgba(11,16,32,.10);
   --line-strong: rgba(11,16,32,.16);
 
-  /* Hero palette (ink blue) */
+  /* Hero palette (deep ink blue) */
   --hero-bg: #0e1424;
   --hero-ink: rgba(255,255,255,.94);
   --hero-muted: rgba(255,255,255,.78);
-  --hero-line: rgba(255,255,255,.20);
+  --hero-line: rgba(255,255,255,.22);
 
   --max: 860px;
 
@@ -38,6 +39,7 @@
   --ease: cubic-bezier(.2,.8,.2,1);
 }
 
+/* Reset */
 *{ box-sizing: border-box; }
 
 html, body{
@@ -60,14 +62,20 @@ body{
   background: rgba(11,16,32,.12);
 }
 
-/* Layout */
+/* -------------------------------------------------------
+   Layout
+-------------------------------------------------------- */
+
 .container{
   max-width: var(--max);
   margin: 0 auto;
   padding: var(--pad-top) var(--gutter) var(--pad-bottom);
 }
 
-/* Header */
+/* -------------------------------------------------------
+   Header
+-------------------------------------------------------- */
+
 header.site{
   display:flex;
   justify-content: space-between;
@@ -105,7 +113,10 @@ nav a:hover{
   border-bottom-color: var(--line-strong);
 }
 
-/* Typography */
+/* -------------------------------------------------------
+   Typography
+-------------------------------------------------------- */
+
 h1, h2{
   font-family: var(--serif);
   font-weight: 520;
@@ -127,22 +138,39 @@ p{
 }
 
 /* -------------------------------------------------------
-   Hero (framed blue block)
+   HERO — FULL BLEED BLUE BAND
 -------------------------------------------------------- */
 
 .hero{
-  margin: 0 0 4.25rem;
-  padding: 3.25rem 3.5rem;
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.04),
-    rgba(255,255,255,0)
-  ),
-  var(--hero-bg);
-  border-radius: 18px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  width: 100vw;
+  padding: 3.75rem 0 4rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.05),
+      rgba(255,255,255,0)
+    ),
+    var(--hero-bg);
+
   box-shadow:
     0 28px 80px rgba(11,16,32,.25),
     inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+/* Inner alignment */
+.hero > *{
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 
 .hero p{
@@ -155,22 +183,25 @@ p{
   color: var(--hero-ink);
 }
 
-/* discreet internal separator */
+/* Hero separator */
 .hero::after{
   content:"";
   display:block;
   width: 72px;
   height: 1px;
-  margin-top: 1.75rem;
+  margin: 1.75rem auto 0;
   background: linear-gradient(90deg, var(--hero-line), transparent);
 }
 
-/* Sections */
-section + section{
-  margin-top: 0;
+/* Space after hero */
+.hero + section{
+  margin-top: 4.5rem;
 }
 
-/* Lists */
+/* -------------------------------------------------------
+   Lists
+-------------------------------------------------------- */
+
 ul{
   margin: .95rem 0 0 0;
   padding: 0;
@@ -197,7 +228,10 @@ li::before{
   transform: translateY(-50%);
 }
 
-/* Notes */
+/* -------------------------------------------------------
+   Notes
+-------------------------------------------------------- */
+
 .note{
   margin-top: 1.1rem;
   font-size: .95rem;
@@ -206,7 +240,10 @@ li::before{
   border-left: 1px solid var(--line);
 }
 
-/* Links */
+/* -------------------------------------------------------
+   Links
+-------------------------------------------------------- */
+
 a{
   color: var(--ink);
   text-decoration: none;
@@ -218,7 +255,10 @@ a:hover{
   border-bottom-color: rgba(11,16,32,.30);
 }
 
-/* Email */
+/* -------------------------------------------------------
+   Email emphasis
+-------------------------------------------------------- */
+
 .email{
   display: inline-block;
   font-weight: 600;
@@ -231,7 +271,10 @@ a:hover{
   box-shadow: 0 14px 40px rgba(11,16,32,.05);
 }
 
-/* Footer */
+/* -------------------------------------------------------
+   Footer
+-------------------------------------------------------- */
+
 footer.site{
   margin-top: 5rem;
   padding-top: 1.6rem;
@@ -248,7 +291,20 @@ footer.site{
   color: var(--muted);
 }
 
-/* Mobile */
+.small a{
+  color: var(--muted);
+  border-bottom-color: transparent;
+}
+
+.small a:hover{
+  color: var(--ink);
+  border-bottom-color: var(--line-strong);
+}
+
+/* -------------------------------------------------------
+   Mobile
+-------------------------------------------------------- */
+
 @media (max-width: 760px){
   :root{
     --gutter: 1.35rem;
@@ -264,8 +320,7 @@ footer.site{
   }
 
   .hero{
-    padding: 2.25rem 1.75rem;
-    border-radius: 14px;
+    padding: 2.75rem 0 3rem;
   }
 
   .hero p{
@@ -277,4 +332,12 @@ footer.site{
     width: 100%;
     text-align: center;
   }
+}
+
+/* -------------------------------------------------------
+   Reduced motion
+-------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; }
 }
