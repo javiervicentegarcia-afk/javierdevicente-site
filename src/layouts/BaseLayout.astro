@@ -20,13 +20,16 @@ const { title, description } = Astro.props;
     <meta property="og:type" content="website" />
 
     <link rel="icon" href="/favicon.svg" />
-    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/global.css?v=3" />
   </head>
 
   <body>
     <div class="container">
       <header class="site">
-        <div class="brand">Javier de Vicente</div>
+        <div class="brand">
+          Javier de Vicente
+          <span class="sub">Cross-border Corporate &amp; M&amp;A · Italy &amp; Spain</span>
+        </div>
         <nav>
           <a href="/">Home</a>
           <a href="/blog/">Insights</a>
@@ -37,6 +40,11 @@ const { title, description } = Astro.props;
       <slot />
 
       <footer class="site">
-        <div>
-          <div class="small">Partner, Pavia e Ansaldo · Madrid</div>
-          <div class="small">Cross-border Corporate &amp; M&amp;A · Italy &amp; Spain</di
+        <div class="small">Partner, Pavia e Ansaldo · Madrid</div>
+        <div class="small">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
