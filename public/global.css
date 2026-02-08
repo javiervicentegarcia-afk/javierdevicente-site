@@ -200,9 +200,25 @@ footer.site{
   nav{ gap: 1rem; }
 }
 
-.hero:after { display:none; }     
-h2 { margin-top: 3rem; }  
-.brand { font-weight: 600; }   
-.email { font-weight: 600; }    
-ul { margin-top: .5rem; }     
-nav a { font-size: .98rem; }      
+/* Hero: lead paragraph (Magic Circle style) */
+.hero p {
+  font-size: 1.35rem;
+  line-height: 1.6;
+  max-width: 60ch;
+  margin-top: 0;
+}
+
+/* Hero spacing */
+.hero {
+  margin-bottom: 3.5rem;
+}
+
+/* Subtle divider under hero (editorial) */
+.hero:after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--line);
+  margin-top: 2rem;
+}
