@@ -199,3 +199,10 @@ footer.site{
   header.site{ flex-direction: column; align-items: flex-start; gap: .75rem; }
   nav{ gap: 1rem; }
 }
+
+.hero:after { display:none; }     
+h2 { margin-top: 3rem; }  
+.brand { font-weight: 600; }   
+.email { font-weight: 600; }    
+ul { margin-top: .5rem; }     
+nav a { font-size: .98rem; }      
