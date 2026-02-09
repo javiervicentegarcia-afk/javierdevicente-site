@@ -1,63 +1,69 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+// TODO: Replace with your exact Pavia e Ansaldo profile URL (pavia-ansaldo.it)
+const FIRM_PROFILE_URL = "https://www.pavia-ansaldo.it/";
 ---
 
 <BaseLayout
-  title="Cross-border Corporate & M&A – Italy and Spain"
-  description="Senior legal advice on cross-border corporate and M&A transactions involving Italy and Spain."
+  title="Cross-border M&A (Italy–Spain) | Javier de Vicente | Pavia e Ansaldo"
+  description="Corporate and M&A Partner at Pavia e Ansaldo advising on cross-border M&A deals between Italy and Spain."
 >
   <main>
     <section class="hero" id="about">
       <p>
-        I advise corporates, shareholders and investors on cross-border
-        M&amp;A deals involving Italy and Spain.
+        I advise corporates, shareholders and investors on cross-border M&amp;A deals
+        involving Italy and Spain.
+      </p>
+    </section>
+
+    <section>
+      <h2>About me</h2>
+      <p>
+        Based in Madrid, I practise as a Corporate and M&amp;A Partner within Pavia e Ansaldo’s
+        international corporate practice, where I mainly work on cross-border M&amp;A deals
+        between Italy and Spain, advising on investments from Italy to Spain and <em>vice versa</em>.
+      </p>
+      <p>
+        My full professional profile is available on Pavia e Ansaldo’s website:
+        <a href={FIRM_PROFILE_URL} target="_blank" rel="noopener">
+          view profile
+        </a>.
+      </p>
+      <p>
+        My work is guided by a set of professional <a href="/tenets/">tenets</a>.
       </p>
     </section>
 
     <section>
       <h2>Practice focus</h2>
-      <p>
-        My practice is centered on cross-border corporate and M&amp;A transactions between
-        Italy and Spain, advising clients throughout the entire lifecycle of a transaction,
-        including:
-      </p>
-      <ul>
-        <li>Buy-side and sell-side M&amp;A transactions</li>
-        <li>Cross-border joint ventures and strategic investments</li>
-        <li>Corporate governance and shareholders’ arrangements</li>
-        <li>Mergers, restructurings and post-acquisition integration</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Selected experience</h2>
-      <p>
-        Selected recent experience includes:
-      </p>
+      <p>Within Pavia e Ansaldo, my work focuses primarily on:</p>
       <ul>
         <li>
-          Advising Italian industrial groups on the acquisition of Spanish operating
-          companies across multiple sectors
+          <strong>Cross-border M&amp;A between Italy and Spain</strong>, mainly in the mid-market,
+          across a range of industries, including real estate-related deals.
         </li>
         <li>
-          Advising Spanish shareholders and investors on minority and majority investments
-          in Italian businesses
-        </li>
-        <li>
-          Leading cross-border M&amp;A transactions coordinated with multi-jurisdictional
-          legal teams
+          <strong>Ongoing corporate work</strong>, supporting clients as their business develops
+          following the initial transaction.
         </li>
       </ul>
+      <p>
+        In recent years, I have worked on a number of significant matters involving Italian and
+        Spanish parties, including buy-side and sell-side M&amp;A, joint ventures, mergers,
+        restructurings and post-acquisition integration.
+      </p>
       <p class="note">
-        Experience described is representative and subject to confidentiality obligations.
+        (Matters described are illustrative and subject to confidentiality obligations.)
       </p>
     </section>
 
     <section id="writing">
       <h2>Writing</h2>
       <p>
-        I write periodically on legal and practical issues arising from cross-border
-        corporate and M&amp;A work.
+        From time to time, I write about legal and practical issues arising from my work on
+        cross-border M&amp;A matters, primarily between Italy and Spain, as well as other topics
+        that seemed worth writing about.
       </p>
       <p>
         <a href="/blog/">Read recent insights →</a>
@@ -66,9 +72,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>
-        For professional inquiries:
-      </p>
+      <p>For professional inquiries:</p>
       <p class="email">javier.vicente@pavia-ansaldo.es</p>
     </section>
   </main>
