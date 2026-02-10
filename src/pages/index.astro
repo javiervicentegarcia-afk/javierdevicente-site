@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const FIRM_PROFILE_URL = "https://www.pavia-ansaldo.it/";
+const FIRM_PROFILE_URL = "https://www.pavia-ansaldo.it/en/javier-vicente/";
 ---
 
 <BaseLayout
@@ -23,16 +23,18 @@ const FIRM_PROFILE_URL = "https://www.pavia-ansaldo.it/";
         between Italy and Spain, and <em>vice versa</em>.
       </p>
       <p>
-        My professional profile is available on the firm’s website:
-        <a href={FIRM_PROFILE_URL} target="_blank" rel="noopener">view profile</a>.
+        My professional profile is available
+        <a href={FIRM_PROFILE_URL} target="_blank" rel="noopener">here</a>.
       </p>
       <p>
         I like to think that my work is guided by a set of professional
-        <a href="/tenets/">tenets</a>. In truth, they are rather personal.
+        <a href="/tenets/">tenets</a>&mdash;yet, in truth, they are rather personal.
       </p>
       <p>
-        I am also the founder of <strong>Club Agnelli</strong>, a monthly dinner
-        bringing together a small group of young business lawyers in Madrid.
+        <em>
+          I am also the founder of Club Agnelli, a series of monthly dinners bringing
+          together some business lawyers in Madrid.
+        </em>
       </p>
     </section>
 
@@ -63,7 +65,11 @@ const FIRM_PROFILE_URL = "https://www.pavia-ansaldo.it/";
     <section id="contact">
       <h2>Contact</h2>
       <p>For professional inquiries:</p>
-      <p class="email">javier.vicente@pavia-ansaldo.es</p>
+      <p class="email">
+        <a href="mailto:javier.vicente@pavia-ansaldo.es">
+          javier.vicente@pavia-ansaldo.es
+        </a>
+      </p>
     </section>
   </main>
 </BaseLayout>
