@@ -9,24 +9,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <main>
     <section class="hero">
       <p>
-        These are the tenets that guide how I practise and advise in cross-border
-        M&amp;A matters involving Italy and Spain.
+        These are the tenets that guide how I practise and advise.
       </p>
     </section>
 
     <section>
       <ol class="tenets">
         <li>
-          ‘Yes’ is the most valuable answer a client can receive; ‘no’ comes only
-          next. What clients are not interested in is reading essays.
-          —{" "}
-          <a
-            href="https://jurysoutblog.wordpress.com/2016/01/30/exclusive-interview-with-mr-edward-walker-arnott-qc-there-is-life-outside-law/"
-            target="_blank"
-            rel="noopener"
-          >
-            Edward Walker-Arnott
-          </a>
+          ‘Yes’ is the most beauriful answer a client can receive; ‘no’ comes only next.
+          <sup>
+            <button class="tenet-ref" data-open="walker">
+              1
+            </button>
+          </sup>
         </li>
 
         <li>
@@ -50,5 +45,60 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </li>
       </ol>
     </section>
+
+    <!-- Floating reference -->
+    <div class="tenet-modal" id="walker" aria-hidden="true">
+      <div class="tenet-modal-content">
+        <button class="tenet-close" aria-label="Close">×</button>
+        <p>
+          “One word of caution that I would like to give is that for trainee solicitors
+          it is very common for clients, or superiors, to receive a long-winded essay
+          to a question, exploring the jurisprudence, history, development and so on
+          of the question asked. The client does not want that.
+        </p>
+        <p>
+          What the client wants is a direct ‘yes’ or ‘no’ in maximum half a page rather
+          than an essay ending with ‘not so sure’. Your learning may be impressive or
+          dazzling in a college examination, but it is your ability to give an answer
+          that we need at the firm.”
+        </p>
+        <p class="tenet-source">
+          — <a
+            href="https://jurysoutblog.wordpress.com/2016/01/30/exclusive-interview-with-mr-edward-walker-arnott-qc-there-is-life-outside-law/"
+            target="_blank"
+            rel="noopener"
+          >
+            Edward Walker-Arnott
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const openers = document.querySelectorAll(".tenet-ref");
+      const modal = document.getElementById("walker");
+      const closeBtn = modal.querySelector(".tenet-close");
+
+      openers.forEach(btn => {
+        btn.addEventListener("click", () => {
+          modal.classList.add("open");
+          modal.setAttribute("aria-hidden", "false");
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", e => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      function closeModal(){
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+    </script>
   </main>
 </BaseLayout>
