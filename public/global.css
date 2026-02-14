@@ -288,66 +288,102 @@ footer.site{
   line-height: 1.65;
 }
 
-/* Superscript button */
+/* Reference mark: looks like an editorial footnote, not a button */
 .tenet-ref{
-  font-size: .8rem;
-  background: none;
-  border: none;
-  cursor: pointer;
+  font-size: .78rem;
+  font-family: var(--display);
   color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  margin-left: .15rem;
+  vertical-align: super;
 }
 
 .tenet-ref:hover{
   color: var(--ink);
+  border-bottom-color: var(--line-strong);
 }
 
-/* Modal */
+/* Modal: softer, paper-like */
 .tenet-modal{
   position: fixed;
   inset: 0;
-  background: rgba(11,16,32,.55);
   display: none;
   align-items: center;
   justify-content: center;
+  padding: 2rem 1.25rem;
+  background: rgba(11,16,32,.35);          /* lighter overlay */
+  backdrop-filter: blur(6px);               /* quiet luxury */
+  -webkit-backdrop-filter: blur(6px);
   z-index: 1000;
 }
 
-.tenet-modal.open{
-  display: flex;
-}
+.tenet-modal.open{ display:flex; }
 
 .tenet-modal-content{
   background: var(--bg);
-  max-width: 560px;
-  padding: 2rem 2.25rem;
-  border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  max-width: 640px;
+  width: 100%;
+  padding: 2.25rem 2.5rem 2.1rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 90px rgba(0,0,0,.22);
   position: relative;
 }
 
+/* Quote styling: editorial */
 .tenet-modal-content p{
-  font-size: 1.05rem;
-  line-height: 1.65;
+  font-family: var(--text);
+  font-size: 1.06rem;
+  line-height: 1.75;
+  color: var(--ink-2);
+  margin: 0 0 1rem 0;
 }
 
+.tenet-modal-content p:first-of-type{
+  position: relative;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(11,16,32,.14);
+}
+
+/* Source line */
 .tenet-source{
   margin-top: 1.25rem;
   font-size: .95rem;
   color: var(--muted);
 }
 
-/* Close */
+.tenet-source a{
+  color: var(--muted);
+  border-bottom-color: transparent;
+}
+
+.tenet-source a:hover{
+  color: var(--ink);
+  border-bottom-color: var(--line-strong);
+}
+
+/* Close: smaller, calmer */
 .tenet-close{
   position: absolute;
-  top: .75rem;
-  right: .9rem;
-  font-size: 1.4rem;
-  background: none;
-  border: none;
+  top: .85rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(11,16,32,.04);
+  border: 1px solid rgba(11,16,32,.10);
   cursor: pointer;
   color: var(--muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tenet-close:hover{
   color: var(--ink);
+  border-color: rgba(11,16,32,.16);
+  background: rgba(11,16,32,.06);
 }
