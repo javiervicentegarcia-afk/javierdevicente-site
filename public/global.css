@@ -275,3 +275,79 @@ footer.site{
   font-size: 1.28rem;
   color: var(--ink);
 }
+
+/* Tenets list */
+.tenets{
+  max-width: 64ch;
+  padding-left: 1.25rem;
+}
+
+.tenets li{
+  margin-top: 2.75rem;
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+/* Superscript button */
+.tenet-ref{
+  font-size: .8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.tenet-ref:hover{
+  color: var(--ink);
+}
+
+/* Modal */
+.tenet-modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(11,16,32,.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.tenet-modal.open{
+  display: flex;
+}
+
+.tenet-modal-content{
+  background: var(--bg);
+  max-width: 560px;
+  padding: 2rem 2.25rem;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  position: relative;
+}
+
+.tenet-modal-content p{
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.tenet-source{
+  margin-top: 1.25rem;
+  font-size: .95rem;
+  color: var(--muted);
+}
+
+/* Close */
+.tenet-close{
+  position: absolute;
+  top: .75rem;
+  right: .9rem;
+  font-size: 1.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.tenet-close:hover{
+  color: var(--ink);
+}
