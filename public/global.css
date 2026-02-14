@@ -387,3 +387,13 @@ footer.site{
   border-color: rgba(11,16,32,.16);
   background: rgba(11,16,32,.06);
 }
+.tenet-modal-content{
+  transform: translateY(8px);
+  opacity: 0;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.tenet-modal.open .tenet-modal-content{
+  transform: translateY(0);
+  opacity: 1;
+}
