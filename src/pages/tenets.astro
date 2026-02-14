@@ -78,10 +78,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       const closeBtn = modal.querySelector(".tenet-close");
 
       openers.forEach(btn => {
-        btn.addEventListener("click", () => {
-          modal.classList.add("open");
-          modal.setAttribute("aria-hidden", "false");
-        });
+        btn.addEventListener("click", (e) => {
+  e.preventDefault();
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+});
       });
 
       closeBtn.addEventListener("click", closeModal);
